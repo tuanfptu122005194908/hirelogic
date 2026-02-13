@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build --mode production",
     "build:dev": "vite build --mode development",
+    "build:static": "vite build --mode production --base=/",
     "start": "node server.js",
     "lint": "eslint .",
     "preview": "vite preview --port 3000",
