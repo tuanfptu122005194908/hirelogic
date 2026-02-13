@@ -5,6 +5,7 @@ import * as monaco from 'monaco-editor';
 import { Problem, LANGUAGES } from '@/types/game';
 import { Code, Send, Clock, ChevronDown, FileText, Lightbulb, Lock, AlertTriangle, ChevronUp, Scroll } from 'lucide-react';
 import { LoadingOverlay } from './LoadingOverlay';
+import { LiveCodeRunner } from './LiveCodeRunner';
 import { useAntiCheat } from '@/hooks/useAntiCheat';
 import { toast } from 'sonner';
 
@@ -116,6 +117,7 @@ export const SolvingScreen = ({
   const [showExitWarningModal, setShowExitWarningModal] = useState(false);
   const [isProblemScrolled, setIsProblemScrolled] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showLiveRunner, setShowLiveRunner] = useState(true);
 
   const languageRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
@@ -929,6 +931,15 @@ export const SolvingScreen = ({
           </div>
         </motion.div>
       </div>
+
+      {/* Live Code Runner */}
+      <LiveCodeRunner
+        code={code}
+        language={language}
+        problem={problem}
+        isVisible={showLiveRunner}
+        onToggleVisibility={() => setShowLiveRunner(!showLiveRunner)}
+      />
     </div>
   );
 };
