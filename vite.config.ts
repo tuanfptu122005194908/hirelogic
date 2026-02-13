@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/hirelogic/" : "/",
+  base: mode === "production" ? "/" : "/",  // Sửa lại cho Render Static Site
   server: {
     host: "::",
     port: 8080,
